@@ -1,0 +1,287 @@
+goroutine 0 [idle]:
+runtime.pthread_cond_wait(0x102d97880, 0x102d97840)
+	/usr/local/go/src/runtime/sys_darwin.go:507 +0x20 fp=0x16d70af90 sp=0x16d70af60 pc=0x102749410
+runtime.semasleep(0xffffffffffffffff)
+	/usr/local/go/src/runtime/os_darwin.go:66 +0x78 fp=0x16d70aff0 sp=0x16d70af90 pc=0x1027260a8
+runtime.notesleep(0x102d97648)
+	/usr/local/go/src/runtime/lock_sema.go:181 +0xc0 fp=0x16d70b030 sp=0x16d70aff0 pc=0x1026fee00
+runtime.mPark(...)
+	/usr/local/go/src/runtime/proc.go:1531
+runtime.stopm()
+	/usr/local/go/src/runtime/proc.go:2335 +0x84 fp=0x16d70b060 sp=0x16d70b030 pc=0x10272fd04
+runtime.findRunnable()
+	/usr/local/go/src/runtime/proc.go:3025 +0xca8 fp=0x16d70b160 sp=0x16d70b060 pc=0x102731898
+runtime.schedule()
+	/usr/local/go/src/runtime/proc.go:3378 +0x98 fp=0x16d70b1a0 sp=0x16d70b160 pc=0x1027328d8
+runtime.park_m(0x600?)
+	/usr/local/go/src/runtime/proc.go:3529 +0x110 fp=0x16d70b1d0 sp=0x16d70b1a0 pc=0x102732df0
+runtime.mcall()
+	/usr/local/go/src/runtime/asm_arm64.s:192 +0x54 fp=0x16d70b1e0 sp=0x16d70b1d0 pc=0x10275bbd4
+
+goroutine 1 [sync.Mutex.Lock]:
+runtime.gopark(0x102d9d1a0?, 0x10274974c?, 0x60?, 0x20?, 0x102748ff4?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x14000107df0 sp=0x14000107dd0 pc=0x10272bb44
+runtime.goparkunlock(...)
+	/usr/local/go/src/runtime/proc.go:387
+runtime.semacquire1(0x140000945f4, 0x7d?, 0x3, 0x1, 0xf7?)
+	/usr/local/go/src/runtime/sema.go:160 +0x21c fp=0x14000107e50 sp=0x14000107df0 pc=0x10273dbec
+sync.runtime_SemacquireMutex(0x1406cc70cfe?, 0x0?, 0x14000107ed8?)
+	/usr/local/go/src/runtime/sema.go:77 +0x28 fp=0x14000107e90 sp=0x14000107e50 pc=0x102759bc8
+sync.(*Mutex).lockSlow(0x140000945f0)
+	/usr/local/go/src/sync/mutex.go:171 +0x178 fp=0x14000107ee0 sp=0x14000107e90 pc=0x102775848
+sync.(*Mutex).Lock(...)
+	/usr/local/go/src/sync/mutex.go:90
+6.824/mr.(*Coordinator).Done(0x140000945f0?)
+	/Users/deepak/github/6.824/src/mr/coordinator.go:180 +0x80 fp=0x14000107f20 sp=0x14000107ee0 pc=0x1029c9830
+main.main()
+	/Users/deepak/github/6.824/src/main/mrcoordinator.go:36 +0xcc fp=0x14000107f70 sp=0x14000107f20 pc=0x102a0eb8c
+runtime.main()
+	/usr/local/go/src/runtime/proc.go:250 +0x248 fp=0x14000107fd0 sp=0x14000107f70 pc=0x10272b718
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x14000107fd0 sp=0x14000107fd0 pc=0x10275e0b4
+
+goroutine 2 [force gc (idle)]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x14000046fa0 sp=0x14000046f80 pc=0x10272bb44
+runtime.goparkunlock(...)
+	/usr/local/go/src/runtime/proc.go:387
+runtime.forcegchelper()
+	/usr/local/go/src/runtime/proc.go:305 +0xb8 fp=0x14000046fd0 sp=0x14000046fa0 pc=0x10272b988
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x14000046fd0 sp=0x14000046fd0 pc=0x10275e0b4
+created by runtime.init.6
+	/usr/local/go/src/runtime/proc.go:293 +0x24
+
+goroutine 17 [GC sweep wait]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x14000042760 sp=0x14000042740 pc=0x10272bb44
+runtime.goparkunlock(...)
+	/usr/local/go/src/runtime/proc.go:387
+runtime.bgsweep(0x0?)
+	/usr/local/go/src/runtime/mgcsweep.go:278 +0xa4 fp=0x140000427b0 sp=0x14000042760 pc=0x102716f04
+runtime.gcenable.func1()
+	/usr/local/go/src/runtime/mgc.go:178 +0x28 fp=0x140000427d0 sp=0x140000427b0 pc=0x10270ba28
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x140000427d0 sp=0x140000427d0 pc=0x10275e0b4
+created by runtime.gcenable
+	/usr/local/go/src/runtime/mgc.go:178 +0x74
+
+goroutine 18 [GC scavenge wait]:
+runtime.gopark(0x1400008c000?, 0x102aaa718?, 0x1?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x14000042f50 sp=0x14000042f30 pc=0x10272bb44
+runtime.goparkunlock(...)
+	/usr/local/go/src/runtime/proc.go:387
+runtime.(*scavengerState).park(0x102d96e20)
+	/usr/local/go/src/runtime/mgcscavenge.go:400 +0x5c fp=0x14000042f80 sp=0x14000042f50 pc=0x102714d8c
+runtime.bgscavenge(0x0?)
+	/usr/local/go/src/runtime/mgcscavenge.go:628 +0x44 fp=0x14000042fb0 sp=0x14000042f80 pc=0x102715304
+runtime.gcenable.func2()
+	/usr/local/go/src/runtime/mgc.go:179 +0x28 fp=0x14000042fd0 sp=0x14000042fb0 pc=0x10270b9c8
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x14000042fd0 sp=0x14000042fd0 pc=0x10275e0b4
+created by runtime.gcenable
+	/usr/local/go/src/runtime/mgc.go:179 +0xb8
+
+goroutine 19 [finalizer wait]:
+runtime.gopark(0x140000465a8?, 0x60000102709918?, 0xe8?, 0x15?, 0x1?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x14000046580 sp=0x14000046560 pc=0x10272bb44
+runtime.runfinq()
+	/usr/local/go/src/runtime/mfinal.go:193 +0x10c fp=0x140000467d0 sp=0x14000046580 pc=0x10270aabc
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x140000467d0 sp=0x140000467d0 pc=0x10275e0b4
+created by runtime.createfing
+	/usr/local/go/src/runtime/mfinal.go:163 +0x84
+
+goroutine 20 [IO wait]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x14000098b90 sp=0x14000098b70 pc=0x10272bb44
+runtime.netpollblock(0x14000098c28?, 0x27c5754?, 0x1?)
+	/usr/local/go/src/runtime/netpoll.go:527 +0x158 fp=0x14000098bd0 sp=0x14000098b90 pc=0x102725138
+internal/poll.runtime_pollWait(0x12a2cd328, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:306 +0xa0 fp=0x14000098c00 sp=0x14000098bd0 pc=0x1027580f0
+internal/poll.(*pollDesc).wait(0x14000072000?, 0x102b23040?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x28 fp=0x14000098c30 sp=0x14000098c00 pc=0x1027c0d98
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0x14000072000)
+	/usr/local/go/src/internal/poll/fd_unix.go:614 +0x250 fp=0x14000098ce0 sp=0x14000098c30 pc=0x1027c5840
+net.(*netFD).accept(0x14000072000)
+	/usr/local/go/src/net/fd_unix.go:172 +0x28 fp=0x14000098da0 sp=0x14000098ce0 pc=0x102806418
+net.(*TCPListener).accept(0x1400000c030)
+	/usr/local/go/src/net/tcpsock_posix.go:148 +0x28 fp=0x14000098dd0 sp=0x14000098da0 pc=0x10281a6e8
+net.(*TCPListener).Accept(0x1400000c030)
+	/usr/local/go/src/net/tcpsock.go:297 +0x2c fp=0x14000098e10 sp=0x14000098dd0 pc=0x10281985c
+net/http.(*onceCloseListener).Accept(0x102b56dd8?)
+	<autogenerated>:1 +0x30 fp=0x14000098e30 sp=0x14000098e10 pc=0x102964810
+net/http.(*Server).Serve(0x14000066000, {0x102b56950, 0x1400000c030})
+	/usr/local/go/src/net/http/server.go:3059 +0x304 fp=0x14000098f60 sp=0x14000098e30 pc=0x102953a34
+net/http.(*Server).ListenAndServe(0x14000066000)
+	/usr/local/go/src/net/http/server.go:2988 +0x84 fp=0x14000098f90 sp=0x14000098f60 pc=0x1029536f4
+net/http.ListenAndServe(...)
+	/usr/local/go/src/net/http/server.go:3242
+main.main.func1()
+	/Users/deepak/github/6.824/src/main/mrcoordinator.go:28 +0x40 fp=0x14000098fd0 sp=0x14000098f90 pc=0x102a0ec10
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x14000098fd0 sp=0x14000098fd0 pc=0x10275e0b4
+created by main.main
+	/Users/deepak/github/6.824/src/main/mrcoordinator.go:27 +0x70
+
+goroutine 21 [IO wait]:
+runtime.gopark(0x0?, 0x0?, 0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x1400009cba0 sp=0x1400009cb80 pc=0x10272bb44
+runtime.netpollblock(0x1400009cc38?, 0x27c5754?, 0x1?)
+	/usr/local/go/src/runtime/netpoll.go:527 +0x158 fp=0x1400009cbe0 sp=0x1400009cba0 pc=0x102725138
+internal/poll.runtime_pollWait(0x12a2cd418, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:306 +0xa0 fp=0x1400009cc10 sp=0x1400009cbe0 pc=0x1027580f0
+internal/poll.(*pollDesc).wait(0x140000faf80?, 0x102700544?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x28 fp=0x1400009cc40 sp=0x1400009cc10 pc=0x1027c0d98
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Accept(0x140000faf80)
+	/usr/local/go/src/internal/poll/fd_unix.go:614 +0x250 fp=0x1400009ccf0 sp=0x1400009cc40 pc=0x1027c5840
+net.(*netFD).accept(0x140000faf80)
+	/usr/local/go/src/net/fd_unix.go:172 +0x28 fp=0x1400009cdb0 sp=0x1400009ccf0 pc=0x102806418
+net.(*UnixListener).accept(0x1400009cdf8?)
+	/usr/local/go/src/net/unixsock_posix.go:172 +0x20 fp=0x1400009cde0 sp=0x1400009cdb0 pc=0x102820660
+net.(*UnixListener).Accept(0x14000114840)
+	/usr/local/go/src/net/unixsock.go:260 +0x2c fp=0x1400009ce20 sp=0x1400009cde0 pc=0x10281f06c
+net/http.(*onceCloseListener).Accept(0x140001881b0?)
+	<autogenerated>:1 +0x30 fp=0x1400009ce40 sp=0x1400009ce20 pc=0x102964810
+net/http.(*Server).Serve(0x14000130000, {0x102b56980, 0x14000114840})
+	/usr/local/go/src/net/http/server.go:3059 +0x304 fp=0x1400009cf70 sp=0x1400009ce40 pc=0x102953a34
+net/http.Serve({0x102b56980, 0x14000114840}, {0x0?, 0x0})
+	/usr/local/go/src/net/http/server.go:2581 +0x74 fp=0x1400009cfa0 sp=0x1400009cf70 pc=0x1029525e4
+6.824/mr.(*Coordinator).server.func1()
+	/Users/deepak/github/6.824/src/mr/coordinator.go:171 +0x34 fp=0x1400009cfd0 sp=0x1400009cfa0 pc=0x1029c9774
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x1400009cfd0 sp=0x1400009cfd0 pc=0x10275e0b4
+created by 6.824/mr.(*Coordinator).server
+	/Users/deepak/github/6.824/src/mr/coordinator.go:171 +0x130
+
+goroutine 29 [sync.Mutex.Lock]:
+runtime.gopark(0x140000ad578?, 0x10274974c?, 0xa8?, 0xd5?, 0x102748ff4?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x140000ad560 sp=0x140000ad540 pc=0x10272bb44
+runtime.goparkunlock(...)
+	/usr/local/go/src/runtime/proc.go:387
+runtime.semacquire1(0x140000945f4, 0x7d?, 0x3, 0x1, 0xa1?)
+	/usr/local/go/src/runtime/sema.go:160 +0x21c fp=0x140000ad5c0 sp=0x140000ad560 pc=0x10273dbec
+sync.runtime_SemacquireMutex(0x2?, 0x2?, 0x140000b6d38?)
+	/usr/local/go/src/runtime/sema.go:77 +0x28 fp=0x140000ad600 sp=0x140000ad5c0 pc=0x102759bc8
+sync.(*Mutex).lockSlow(0x140000945f0)
+	/usr/local/go/src/sync/mutex.go:171 +0x178 fp=0x140000ad650 sp=0x140000ad600 pc=0x102775848
+sync.(*Mutex).Lock(...)
+	/usr/local/go/src/sync/mutex.go:90
+6.824/mr.(*Coordinator).GetTask(0x140000945f0?, 0x140000b6ed0?, 0x14000090fc0?)
+	/Users/deepak/github/6.824/src/mr/coordinator.go:52 +0x7c fp=0x140000ad6d0 sp=0x140000ad650 pc=0x1029c901c
+runtime.call32(0x14000115650, 0x140000bc640, 0x0, 0x0, 0x0, 0x18, 0x140000adc20)
+	/usr/local/go/src/runtime/asm_arm64.s:479 +0x78 fp=0x140000ad700 sp=0x140000ad6d0 pc=0x10275c1d8
+runtime.reflectcall(0x102aceba0?, 0x14000090fc0?, 0x4?, 0x2a18620?, 0x1?, 0x12?, 0x102aceba0?)
+	<autogenerated>:1 +0x34 fp=0x140000ad740 sp=0x140000ad700 pc=0x102760334
+reflect.Value.call({0x14000092720?, 0x140000bc640?, 0x13?}, {0x102a0f6b5, 0x4}, {0x1400009def8, 0x3, 0x3?})
+	/usr/local/go/src/reflect/value.go:586 +0x87c fp=0x140000addb0 sp=0x140000ad740 pc=0x10278c77c
+reflect.Value.Call({0x14000092720?, 0x140000bc640?, 0x0?}, {0x140000446f8?, 0x0?, 0x0?})
+	/usr/local/go/src/reflect/value.go:370 +0x90 fp=0x140000ade30 sp=0x140000addb0 pc=0x10278bd10
+net/rpc.(*service).call(0x140000bfc00, 0x0?, 0x0?, 0x140001ba1e0, 0x140000fae80, 0x0?, {0x102aceb60?, 0x140000b6ed0?, 0x0?}, {0x102aceba0?, ...}, ...)
+	/usr/local/go/src/net/rpc/server.go:382 +0x20c fp=0x140000adf50 sp=0x140000ade30 pc=0x1029c593c
+net/rpc.(*Server).ServeCodec.func1()
+	/usr/local/go/src/net/rpc/server.go:479 +0x5c fp=0x140000adfd0 sp=0x140000adf50 pc=0x1029c662c
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x140000adfd0 sp=0x140000adfd0 pc=0x10275e0b4
+created by net/rpc.(*Server).ServeCodec
+	/usr/local/go/src/net/rpc/server.go:479 +0x378
+
+goroutine 36 [IO wait]:
+runtime.gopark(0xffffffffffffffff?, 0xffffffffffffffff?, 0x23?, 0x0?, 0x1027a8f70?)
+	/usr/local/go/src/runtime/proc.go:381 +0xe4 fp=0x14000103200 sp=0x140001031e0 pc=0x10272bb44
+runtime.netpollblock(0x0?, 0x0?, 0x0?)
+	/usr/local/go/src/runtime/netpoll.go:527 +0x158 fp=0x14000103240 sp=0x14000103200 pc=0x102725138
+internal/poll.runtime_pollWait(0x12a2cd238, 0x72)
+	/usr/local/go/src/runtime/netpoll.go:306 +0xa0 fp=0x14000103270 sp=0x14000103240 pc=0x1027580f0
+internal/poll.(*pollDesc).wait(0x14000180300?, 0x140001d9000?, 0x0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:84 +0x28 fp=0x140001032a0 sp=0x14000103270 pc=0x1027c0d98
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+internal/poll.(*FD).Read(0x14000180300, {0x140001d9000, 0x1000, 0x1000})
+	/usr/local/go/src/internal/poll/fd_unix.go:167 +0x200 fp=0x14000103340 sp=0x140001032a0 pc=0x1027c2100
+net.(*netFD).Read(0x14000180300, {0x140001d9000?, 0x0?, 0x0?})
+	/usr/local/go/src/net/fd_posix.go:55 +0x28 fp=0x14000103390 sp=0x14000103340 pc=0x102804778
+net.(*conn).Read(0x14000186158, {0x140001d9000?, 0x2?, 0x0?})
+	/usr/local/go/src/net/net.go:183 +0x34 fp=0x140001033e0 sp=0x14000103390 pc=0x102811cb4
+net.(*UnixConn).Read(0x2?, {0x140001d9000?, 0x14000103478?, 0x10296c194?})
+	<autogenerated>:1 +0x2c fp=0x14000103410 sp=0x140001033e0 pc=0x102824bbc
+bufio.(*Reader).Read(0x140001a22a0, {0x140001ba1d0, 0x1, 0x140000b6ed0?})
+	/usr/local/go/src/bufio/bufio.go:237 +0x1e0 fp=0x14000103450 sp=0x14000103410 pc=0x1028f4bb0
+io.ReadAtLeast({0x102b541a0, 0x140001a22a0}, {0x140001ba1d0, 0x1, 0x9}, 0x1)
+	/usr/local/go/src/io/io.go:332 +0xa0 fp=0x140001034a0 sp=0x14000103450 pc=0x1027a0f00
+io.ReadFull(...)
+	/usr/local/go/src/io/io.go:351
+encoding/gob.decodeUintReader({0x102b541a0?, 0x140001a22a0?}, {0x140001ba1d0?, 0x9?, 0x9?})
+	/usr/local/go/src/encoding/gob/decode.go:116 +0x4c fp=0x14000103500 sp=0x140001034a0 pc=0x10296a0fc
+encoding/gob.(*Decoder).recvMessage(0x14000180400)
+	/usr/local/go/src/encoding/gob/decoder.go:82 +0x38 fp=0x14000103540 sp=0x14000103500 pc=0x1029725f8
+encoding/gob.(*Decoder).decodeTypeSequence(0x14000180400, 0x0)
+	/usr/local/go/src/encoding/gob/decoder.go:148 +0x50 fp=0x14000103570 sp=0x14000103540 pc=0x1029729b0
+encoding/gob.(*Decoder).DecodeValue(0x14000180400, {0x102ad31a0?, 0x14000090fe0?, 0x1029c68cc?})
+	/usr/local/go/src/encoding/gob/decoder.go:227 +0x188 fp=0x140001035f0 sp=0x14000103570 pc=0x102972e88
+encoding/gob.(*Decoder).Decode(0x14000180400, {0x102ad31a0?, 0x14000090fe0?})
+	/usr/local/go/src/encoding/gob/decoder.go:204 +0x19c fp=0x14000103650 sp=0x140001035f0 pc=0x102972cac
+net/rpc.(*gobServerCodec).ReadRequestHeader(0x14000090fc0?, 0x20?)
+	/usr/local/go/src/net/rpc/server.go:402 +0x2c fp=0x14000103680 sp=0x14000103650 pc=0x1029c5b3c
+net/rpc.(*Server).readRequestHeader(0x140000bf5c0, {0x102b56fd0, 0x1400019c720})
+	/usr/local/go/src/net/rpc/server.go:588 +0x4c fp=0x14000103750 sp=0x14000103680 pc=0x1029c710c
+net/rpc.(*Server).readRequest(0x14000198868?, {0x102b56fd0, 0x1400019c720})
+	/usr/local/go/src/net/rpc/server.go:548 +0x28 fp=0x14000103830 sp=0x14000103750 pc=0x1029c6da8
+net/rpc.(*Server).ServeCodec(0x140000bf5c0, {0x102b56fd0?, 0x1400019c720})
+	/usr/local/go/src/net/rpc/server.go:463 +0x5c fp=0x14000103920 sp=0x14000103830 pc=0x1029c624c
+net/rpc.(*Server).ServeConn(0x12a2cd578?, {0x12a2cee38?, 0x14000186158})
+	/usr/local/go/src/net/rpc/server.go:454 +0x390 fp=0x14000103990 sp=0x14000103920 pc=0x1029c61c0
+net/rpc.(*Server).ServeHTTP(0x14000198ad8?, {0x102b56b30?, 0x140001b00e0}, 0x140001a8100)
+	/usr/local/go/src/net/rpc/server.go:709 +0x298 fp=0x14000103a60 sp=0x14000103990 pc=0x1029c7988
+net/http.(*ServeMux).ServeHTTP(0x0?, {0x102b56b30, 0x140001b00e0}, 0x140001a8100)
+	/usr/local/go/src/net/http/server.go:2500 +0x140 fp=0x14000103ab0 sp=0x14000103a60 pc=0x102951e70
+net/http.serverHandler.ServeHTTP({0x1400019c5a0?}, {0x102b56b30, 0x140001b00e0}, 0x140001a8100)
+	/usr/local/go/src/net/http/server.go:2936 +0x2d8 fp=0x14000103b60 sp=0x14000103ab0 pc=0x102953568
+net/http.(*conn).serve(0x140001881b0, {0x102b56e48, 0x14000114930})
+	/usr/local/go/src/net/http/server.go:1995 +0x560 fp=0x14000103fa0 sp=0x14000103b60 pc=0x10294f600
+net/http.(*Server).Serve.func3()
+	/usr/local/go/src/net/http/server.go:3089 +0x30 fp=0x14000103fd0 sp=0x14000103fa0 pc=0x102953d90
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_arm64.s:1172 +0x4 fp=0x14000103fd0 sp=0x14000103fd0 pc=0x10275e0b4
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3089 +0x520
+
+r0      0x104
+r1      0x0
+r2      0x800
+r3      0x0
+r4      0x0
+r5      0xa0
+r6      0x0
+r7      0x0
+r8      0x16d70ae78
+r9      0x0
+r10     0x102d97858
+r11     0x2
+r12     0x0
+r13     0x0
+r14     0x0
+r15     0x0
+r16     0x131
+r17     0x1f7594f18
+r18     0x0
+r19     0x102d97840
+r20     0x102d97880
+r21     0x1f2a71ee0
+r22     0x0
+r23     0x0
+r24     0x800
+r25     0x801
+r26     0x900
+r27     0x20
+r28     0x102d97120
+r29     0x16d70aef0
+lr      0x197a9c574
+sp      0x16d70ae60
+pc      0x197a5f710
+fault   0x197a5f710
+exit status 2
